@@ -10,7 +10,7 @@ body {
 }
 
 button {
-  background-color: rgb(171, 156, 179);
+  background-color: #ab9cb3;
   border: none;
   border-radius: 5px;
   padding: 10px;
@@ -18,7 +18,7 @@ button {
   transition: background-color 300ms;
 }
 button:hover {
-  background-color: rgb(94, 85, 99);
+  background-color: #5e5563;
 }
 
 .choice span {
@@ -29,5 +29,5 @@ button:hover {
   border-radius: 10px;
 }
 .choice span:hover {
-  background-color: rgb(94, 85, 99);
+  background-color: #5e5563;
 }
