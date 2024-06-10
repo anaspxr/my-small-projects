@@ -3,8 +3,6 @@ body {
   color: rgb(228, 198, 255);
 }
 .App {
-  display: flex;
-  justify-content: center;
   align-items: center;
   margin: 20px;
 }
@@ -30,4 +28,10 @@ button:hover {
 }
 .choice span:hover {
   background-color: #5e5563;
+}
+
+.buttons-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }

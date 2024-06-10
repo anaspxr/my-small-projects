@@ -1,11 +1,11 @@
 import { useState } from "react";
 import ShowResult from "./ShowResult";
-export default function Button() {
+export default function StonePaperScissor() {
   const [finalResult, setFinalResult] = useState(null);
   const [result, setResult] = useState(null);
   const [choice, setChoice] = useState(null);
 
-  const stonePaperScissor = (val) => {
+  const generateRandom = (val) => {
     setChoice(val);
     switch (Math.ceil(Math.random() * 3)) {
       case 1:
@@ -42,32 +42,32 @@ export default function Button() {
   };
   return (
     <div>
-      <div>
-        <p className="choice">
-          Pick Your Choice :{" "}
-          <span
-            onClick={() => {
-              stonePaperScissor("Stone");
-            }}
-          >
-            Stone
-          </span>
-          <span
-            onClick={() => {
-              stonePaperScissor("Paper");
-            }}
-          >
-            Paper
-          </span>
-          <span
-            onClick={() => {
-              stonePaperScissor("Scissor");
-            }}
-          >
-            Scissor
-          </span>
-        </p>
-      </div>
+      <h2>Stone Paper Scissor</h2>
+      <p className="choice">
+        Pick Your Choice :{" "}
+        <span
+          onClick={() => {
+            generateRandom("Stone");
+          }}
+        >
+          Stone
+        </span>
+        <span
+          onClick={() => {
+            generateRandom("Paper");
+          }}
+        >
+          Paper
+        </span>
+        <span
+          onClick={() => {
+            generateRandom("Scissor");
+          }}
+        >
+          Scissor
+        </span>
+      </p>
+
       <ShowResult
         userChoice={choice}
         computerChoice={result}
