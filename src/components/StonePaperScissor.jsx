@@ -1,5 +1,4 @@
 import { useState } from "react";
-import ShowResult from "./ShowResult";
 export default function StonePaperScissor() {
   const [finalResult, setFinalResult] = useState(null);
   const [result, setResult] = useState(null);
@@ -73,6 +72,16 @@ export default function StonePaperScissor() {
         computerChoice={result}
         finalResult={finalResult}
       />
+    </div>
+  );
+}
+
+function ShowResult(props) {
+  return (
+    <div>
+      <p>Your Choice : {props.userChoice}</p>
+      <p>Computer's choice:{props.computerChoice} </p>
+      <h1>{props.finalResult}</h1>
     </div>
   );
 }
