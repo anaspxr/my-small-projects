@@ -10,7 +10,7 @@ export default function Quotes() {
     fetch("https://dummyjson.com/quotes")
       .then((res) => {
         if (!res.ok) throw new Error("error");
-        res.json();
+        return res.json();
       })
       .then((data) => {
         const randomNum = Math.floor(Math.random() * data.quotes.length);
