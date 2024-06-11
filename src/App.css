@@ -35,3 +35,15 @@ button:hover {
   flex-wrap: wrap;
   gap: 10px;
 }
+.fetch-button {
+  border: 1px solid #dfcef3;
+  color: #dfcef3;
+  background-color: #4c065f51;
+}
+.fetch-button:hover {
+  background-color: #22012b8e;
+}
+
+.content-container {
+  margin-top: 50px;
+}

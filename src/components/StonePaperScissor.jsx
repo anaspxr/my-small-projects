@@ -40,7 +40,7 @@ export default function StonePaperScissor() {
     }
   };
   return (
-    <div>
+    <div className="content-container">
       <h2>Stone Paper Scissor</h2>
       <p className="choice">
         Pick Your Choice :{" "}
