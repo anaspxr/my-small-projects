@@ -2,19 +2,32 @@ import { useState } from "react";
 
 export default function TodoList() {
   const [inputValue, setInputValue] = useState("");
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState([
+    ...JSON.parse(localStorage.getItem("tasks")),
+  ]);
   const handleChange = (e) => {
     setInputValue(e.target.value);
   };
   const handleClick = () => {
-    inputValue.trimStart() !== "" && setTasks([...tasks, inputValue]);
-    setInputValue("");
+    if (inputValue.trimStart() !== "") {
+      setTasks([...tasks, inputValue]);
+      setInputValue("");
+      localStorage.setItem("tasks", JSON.stringify([...tasks, inputValue]));
+    }
   };
   const handleDelete = (index) => {
     setTasks(
       tasks.filter((_item, i) => {
         return index !== i;
       })
+    );
+    localStorage.setItem(
+      "tasks",
+      JSON.stringify(
+        tasks.filter((_item, i) => {
+          return index !== i;
+        })
+      )
     );
   };
   return (
