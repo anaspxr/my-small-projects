@@ -2,9 +2,10 @@ import { useState } from "react";
 import "./App.css";
 import StonePaperScissor from "./components/StonePaperScissor";
 import Quotes from "./components/Quotes";
+import Form from "./components/Form";
 
 function App() {
-  const listItems = ["Stone Paper Scissor", "Quotes", "3", "4"];
+  const listItems = ["Stone Paper Scissor", "Quotes", "Form"];
   const [showContent, setShowContent] = useState(0);
   const Buttons = listItems.map((content, index) => (
     <button
@@ -22,8 +23,7 @@ function App() {
       <div className="buttons-container"> {Buttons}</div>
       {showContent === 1 && <StonePaperScissor />}
       {showContent === 2 && <Quotes />}
-      {showContent === 3 && "content 3"}
-      {showContent === 4 && "content 4"}
+      {showContent === 3 && <Form />}
     </div>
   );
 }

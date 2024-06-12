@@ -1,10 +1,16 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   background-color: rgb(39, 32, 39);
   color: rgb(228, 198, 255);
 }
 .App {
   align-items: center;
-  margin: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 button {
@@ -47,4 +53,57 @@ button:hover {
 
 .content-container {
   margin-top: 30px;
+}
+.form-container {
+  display: flex;
+  justify-content: center;
+  background-color: #3400504b;
+  border: 1px solid #e986ff;
+  border-radius: 15px;
+  width: 500px;
+  padding: 0 30px 30px;
+}
+
+@media screen and (max-width: 550px) {
+  .form-container {
+    max-width: 400px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .form-container {
+    max-width: 300px;
+  }
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form label {
+  display: block;
+}
+
+.form input {
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  outline-color: #e986ff;
+}
+
+.form p span {
+  color: #ca74f9;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.form p span:hover {
+  color: #ab0fff;
+}
+
+.form-errors {
+  margin: 0;
+  color: rgb(216, 98, 98);
 }
