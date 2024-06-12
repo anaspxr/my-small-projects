@@ -13,8 +13,12 @@ body {
   flex-direction: column;
 }
 
+.content-container {
+  margin-top: 30px;
+}
+
 button {
-  background-color: #ab9cb3;
+  background-color: #efd0ff;
   border: none;
   border-radius: 5px;
   padding: 10px;
@@ -22,8 +26,10 @@ button {
   transition: background-color 300ms;
 }
 button:hover {
-  background-color: #5e5563;
+  background-color: #c681ec;
 }
+
+/* stone paper scissor */
 
 .choice span {
   margin-right: 10px;
@@ -41,6 +47,8 @@ button:hover {
   flex-wrap: wrap;
   gap: 10px;
 }
+
+/* quotes */
 .fetch-button {
   border: 1px solid #dfcef3;
   color: #dfcef3;
@@ -51,9 +59,8 @@ button:hover {
   background-color: #22012b8e;
 }
 
-.content-container {
-  margin-top: 30px;
-}
+/* form  */
+
 .form-container {
   display: flex;
   justify-content: center;
@@ -106,4 +113,62 @@ button:hover {
 .form-errors {
   margin: 0;
   color: rgb(216, 98, 98);
+}
+
+/* to-do list */
+.todo-list {
+  background-color: #3400504b;
+  border: 1px solid #e986ff;
+  border-radius: 15px;
+  max-width: 500px;
+  padding: 0 30px 30px;
+  min-height: 400px;
+}
+
+.inputField {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  justify-content: center;
+  gap: 10px;
+}
+
+.inputField input {
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  outline-color: #e986ff;
+}
+
+.tasks-field {
+  border-radius: 10px;
+  margin: 1rem 0 1rem 0;
+  padding: 10px;
+  color: #381e46;
+  background-color: #dfcef3;
+}
+.tasks-field ul {
+  list-style: none;
+}
+
+.tasks-field li {
+  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(10, auto);
+  border-bottom: 1px solid rgb(166, 140, 175);
+  padding: 5px;
+}
+
+.list-index {
+  color: #79658f;
+}
+
+.task-delete {
+  color: #de5087;
+  text-decoration: underline;
+  cursor: pointer;
+  grid-column: 10;
+}
+.task-delete:hover {
+  color: #ff0062;
 }

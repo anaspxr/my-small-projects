@@ -3,9 +3,10 @@ import "./App.css";
 import StonePaperScissor from "./components/StonePaperScissor";
 import Quotes from "./components/Quotes";
 import Form from "./components/Form";
+import TodoList from "./components/TodoList";
 
 function App() {
-  const listItems = ["Stone Paper Scissor", "Quotes", "Form"];
+  const listItems = ["Stone Paper Scissor", "Quotes", "Form", "To-Do List"];
   const [showContent, setShowContent] = useState(0);
   const Buttons = listItems.map((content, index) => (
     <button
@@ -24,6 +25,7 @@ function App() {
       {showContent === 1 && <StonePaperScissor />}
       {showContent === 2 && <Quotes />}
       {showContent === 3 && <Form />}
+      {showContent === 4 && <TodoList />}
     </div>
   );
 }
