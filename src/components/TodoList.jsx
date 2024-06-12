@@ -1,10 +1,9 @@
 import { useState } from "react";
 
 export default function TodoList() {
+  const localData = JSON.parse(localStorage.getItem("tasks"));
   const [inputValue, setInputValue] = useState("");
-  const [tasks, setTasks] = useState([
-    ...JSON.parse(localStorage.getItem("tasks")),
-  ]);
+  const [tasks, setTasks] = useState(localData ? [...localData] : []);
   const handleChange = (e) => {
     setInputValue(e.target.value);
   };
