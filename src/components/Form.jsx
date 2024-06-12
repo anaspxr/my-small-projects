@@ -7,14 +7,21 @@ function Form() {
   const [isSubmit, setIsSubmit] = useState(false);
   const [newUser, setNewUser] = useState(true);
   const [loggedIn, setLoggedIn] = useState(false);
-
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    setFormErrors(validate(formValues));
+    if (newUser) {
+      if (Object.keys(validateSignup(formValues)).length === 0) {
+      } else {
+        setFormErrors(validateSignup(formValues));
+      }
+    } else {
+      setFormErrors(validateLogin(formValues));
+    }
   };
 
   useEffect(() => {
@@ -23,7 +30,7 @@ function Form() {
       console.log(formValues);
   }, [formErrors]);
 
-  const validate = (values) => {
+  const validateSignup = (values) => {
     const errors = {};
 
     const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
@@ -46,6 +53,8 @@ function Form() {
       errors.confirmpass = "passwords mismatch!!";
     return errors;
   };
+
+  const validateLogin = (values) => {};
 
   return (
     <div className="content-container form-container">
