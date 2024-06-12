@@ -7,7 +7,7 @@ export default function TodoList() {
     setInputValue(e.target.value);
   };
   const handleClick = () => {
-    setTasks([...tasks, inputValue]);
+    inputValue.trimStart() !== "" && setTasks([...tasks, inputValue]);
     setInputValue("");
   };
   const handleDelete = (index) => {
@@ -21,7 +21,12 @@ export default function TodoList() {
     <div className="content-container todo-list">
       <h1>To Do List</h1>
       <div className="inputField">
-        <input type="text" onChange={handleChange} value={inputValue} />
+        <input
+          type="text"
+          onChange={handleChange}
+          onKeyDown={(e) => e.key === "Enter" && handleClick()}
+          value={inputValue}
+        />
         <button onClick={handleClick}>Add Task</button>
       </div>
 
