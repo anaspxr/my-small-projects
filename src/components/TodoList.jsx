@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function TodoList() {
   const localData = JSON.parse(localStorage.getItem("tasks"));
@@ -6,31 +6,28 @@ export default function TodoList() {
   const [tasks, setTasks] = useState(localData ? [...localData] : []);
   const focuser = useRef(null);
 
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
+
   const handleChange = (e) => {
     setInputValue(e.target.value);
   };
+
   const handleClick = () => {
-    if (inputValue.trimStart() !== "") {
-      setTasks([...tasks, inputValue]);
+    if (inputValue.trim() !== "") {
+      const newTask = { id: Date.now(), value: inputValue };
+      setTasks((prevTasks) => [...prevTasks, newTask]);
       setInputValue("");
-      localStorage.setItem("tasks", JSON.stringify([...tasks, inputValue]));
-      console.log(focuser);
     }
+    console.log(tasks);
     focuser.current.focus();
   };
   const handleDelete = (index) => {
-    setTasks(
-      tasks.filter((_item, i) => {
+    setTasks((prevTasks) =>
+      prevTasks.filter((_item, i) => {
         return index !== i;
       })
-    );
-    localStorage.setItem(
-      "tasks",
-      JSON.stringify(
-        tasks.filter((_item, i) => {
-          return index !== i;
-        })
-      )
     );
   };
   return (
@@ -52,9 +49,9 @@ export default function TodoList() {
           <h3>Pending Tasks:</h3>
           <ul>
             {tasks.map((item, index) => (
-              <li key={index}>
+              <li key={item.id}>
                 <span className="list-index">{index + 1} : </span>{" "}
-                <span>{item}</span>{" "}
+                <span>{item.value}</span>
                 <span
                   className="task-delete"
                   onClick={() => {
