@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export default function TodoList() {
   const localData = JSON.parse(localStorage.getItem("tasks"));
   const [inputValue, setInputValue] = useState("");
   const [tasks, setTasks] = useState(localData ? [...localData] : []);
+  const focuser = useRef(null);
+
   const handleChange = (e) => {
     setInputValue(e.target.value);
   };
@@ -12,7 +14,9 @@ export default function TodoList() {
       setTasks([...tasks, inputValue]);
       setInputValue("");
       localStorage.setItem("tasks", JSON.stringify([...tasks, inputValue]));
+      console.log(focuser);
     }
+    focuser.current.focus();
   };
   const handleDelete = (index) => {
     setTasks(
@@ -34,6 +38,7 @@ export default function TodoList() {
       <h1>To Do List</h1>
       <div className="inputField">
         <input
+          ref={focuser}
           type="text"
           onChange={handleChange}
           onKeyDown={(e) => e.key === "Enter" && handleClick()}
