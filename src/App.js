@@ -4,13 +4,21 @@ import StonePaperScissor from "./components/StonePaperScissor";
 import Quotes from "./components/Quotes";
 import Form from "./components/Form";
 import TodoList from "./components/TodoList";
+import TicTac from "./components/TicTac";
 
 function App() {
-  const listItems = ["Stone Paper Scissor", "Quotes", "Form", "To-Do List"];
+  const listItems = [
+    "Stone Paper Scissor",
+    "Quotes",
+    "Form",
+    "To-Do List",
+    "Tic Tac Toe",
+  ];
   const [showContent, setShowContent] = useState(0);
   const Buttons = listItems.map((content, index) => (
     <button
       key={index}
+      className={`${showContent === index + 1 && "button-active"}`}
       onClick={() => {
         setShowContent(index + 1);
       }}
@@ -26,6 +34,7 @@ function App() {
       {showContent === 2 && <Quotes />}
       {showContent === 3 && <Form />}
       {showContent === 4 && <TodoList />}
+      {showContent === 5 && <TicTac />}
     </div>
   );
 }
