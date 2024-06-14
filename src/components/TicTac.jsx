@@ -43,11 +43,11 @@ export default function TicTac() {
       }}
     >
       <div className="tictac-score">
-        <div>
+        <div className={`${turn && "tictac-turn"}`}>
           <h3>Player 1</h3>
           {turn && play && <p>Your Turn..</p>}
         </div>
-        <div>
+        <div className={`${!turn && "tictac-turn"}`}>
           <h3>Player 2</h3>
           {!turn && play && <p>Your Turn..</p>}
         </div>
@@ -60,7 +60,9 @@ export default function TicTac() {
       >
         {play ? "Restart" : "Start"}
       </button>
-
+      {highLight && (
+        <p style={{ textAlign: "center" }}>Click start to play..!!</p>
+      )}
       <div className="tictac-container">
         {columns.map((col, index) => {
           return (

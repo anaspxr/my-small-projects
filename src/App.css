@@ -4,7 +4,7 @@
 
 body {
   background-color: rgb(39, 32, 39);
-  color: #e4c6ff;
+  color: #c6b5e1;
 }
 .App {
   align-items: center;
@@ -19,7 +19,7 @@ body {
 }
 
 button {
-  background-color: #d993ff;
+  background-color: #b090eb;
   border: none;
   border-radius: 5px;
   padding: 10px;
@@ -27,11 +27,11 @@ button {
   transition: background-color 300ms;
 }
 button:hover {
-  background-color: #994cc0;
+  background-color: #7e4cc0;
 }
 .button-active {
   border: 1px solid white;
-  background-color: #994cc0;
+  background-color: #884cc0;
 }
 
 /* stone paper scissor */
@@ -44,7 +44,7 @@ button:hover {
   border-radius: 10px;
 }
 .choice span:hover {
-  background-color: #5e5563;
+  background-color: #9453de43;
 }
 
 .buttons-container {
@@ -65,11 +65,11 @@ button:hover {
   align-self: center;
   border: 1px solid #dfcef3;
   color: #dfcef3;
-  background-color: #4e036351;
+  background-color: #35006651;
   margin-right: 10px;
 }
 .fetch-button:hover {
-  background-color: #22012b8e;
+  background-color: #7a5bb58e;
 }
 
 /* form  */
@@ -78,7 +78,7 @@ button:hover {
   display: flex;
   justify-content: center;
   background-color: #3400504b;
-  border: 1px solid #e986ff;
+  border: 2px solid #bc86ff;
   border-radius: 15px;
   width: 500px;
   padding: 0 30px 30px;
@@ -111,7 +111,7 @@ button:hover {
   border: none;
   border-radius: 5px;
   padding: 10px;
-  outline-color: #e986ff;
+  outline-color: #bc86ff;
 }
 
 .form p span {
@@ -125,13 +125,13 @@ button:hover {
 
 .form-errors {
   margin: 0;
-  color: rgb(216, 98, 98);
+  color: #d86262;
 }
 
 /* to-do list */
 .todo-list {
   background-color: #3400504b;
-  border: 1px solid #e986ff;
+  border: 2px solid #bc86ff;
   border-radius: 15px;
   max-width: 500px;
   padding: 0 30px 30px;
@@ -150,7 +150,7 @@ button:hover {
   border: none;
   border-radius: 5px;
   padding: 10px;
-  outline-color: #e986ff;
+  outline-color: #bc86ff;
 }
 
 .tasks-field {
@@ -158,7 +158,7 @@ button:hover {
   margin: 1rem 0 1rem 0;
   padding: 10px;
   color: #381e46;
-  background-color: #dfcef3;
+  background-color: #cfb4ef;
 }
 .tasks-field ul {
   list-style: none;
@@ -168,7 +168,7 @@ button:hover {
   justify-content: space-between;
   display: grid;
   grid-template-columns: repeat(10, auto);
-  border-bottom: 1px solid rgb(166, 140, 175);
+  border-bottom: 1px solid #a68caf;
   padding: 5px;
 }
 
@@ -194,12 +194,26 @@ button:hover {
   border: 5px solid #c2a5d2;
   background-color: #2b0e3b;
   display: grid;
-  grid-template-columns: auto auto auto;
-  grid-template-rows: auto auto auto;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
   height: 500px;
   width: 500px;
   gap: 5px;
 }
+
+@media screen and (max-width: 550px) {
+  .tictac-container {
+    height: 400px;
+    width: 400px;
+  }
+}
+@media screen and (max-width: 410px) {
+  .tictac-container {
+    height: 300px;
+    width: 300px;
+  }
+}
+
 .tictac-cols {
   background-color: #79658f;
   border-radius: 5px;
@@ -220,12 +234,12 @@ button:hover {
   0%,
   40%,
   80% {
-    background-color: #a271bd;
-    border: 1.5px solid rgb(157, 0, 255);
+    background-color: #9771bd;
+    border: 1.5px solid #9d00ff;
   }
   20%,
   60% {
-    background-color: #c865f6;
+    background-color: #9d65f6;
   }
   100% {
     background-color: #4e036351;
@@ -250,5 +264,9 @@ button:hover {
 
 .tictac-cols-hover:hover {
   cursor: pointer;
-  background-color: #a271bd;
+  background-color: #9671bd;
+}
+
+.tictac-turn {
+  color: #7d59bc;
 }
