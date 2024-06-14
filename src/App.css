@@ -114,12 +114,12 @@ button:hover {
   outline-color: #bc86ff;
 }
 
-.form p span {
+.form-link {
   color: #ca74f9;
   text-decoration: underline;
   cursor: pointer;
 }
-.form p span:hover {
+.form-link:hover {
   color: #ab0fff;
 }
 
