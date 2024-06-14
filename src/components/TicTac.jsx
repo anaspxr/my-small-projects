@@ -42,14 +42,6 @@ export default function TicTac() {
         justifyContent: "center",
       }}
     >
-      <button
-        className={`tictac-button ${highLight && "highlighted"}`}
-        onClick={() => {
-          !play ? setPlay(true) : setColumns(initialValue);
-        }}
-      >
-        {play ? "Restart" : "Start"}
-      </button>
       <div className="tictac-score">
         <div>
           <h3>Player 1</h3>
@@ -60,6 +52,15 @@ export default function TicTac() {
           {!turn && play && <p>Your Turn..</p>}
         </div>
       </div>
+      <button
+        className={`tictac-button ${highLight && "highlighted"}`}
+        onClick={() => {
+          !play ? setPlay(true) : setColumns(initialValue);
+        }}
+      >
+        {play ? "Restart" : "Start"}
+      </button>
+
       <div className="tictac-container">
         {columns.map((col, index) => {
           return (

@@ -209,6 +209,7 @@ button:hover {
 }
 
 .tictac-button {
+  width: 100px;
   align-self: center;
   border: 1px solid #dfcef3;
   color: #dfcef3;
@@ -220,16 +221,18 @@ button:hover {
   40%,
   80% {
     background-color: #a271bd;
+    border: 1.5px solid rgb(157, 0, 255);
   }
   20%,
   60% {
-    background-color: #ff84fd;
+    background-color: #c865f6;
   }
   100% {
     background-color: #4e036351;
   }
 }
 .highlighted {
+  color: #2b0e3b;
   animation: highlight 1s;
 }
 
