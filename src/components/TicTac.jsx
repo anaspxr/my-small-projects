@@ -1,19 +1,30 @@
 import { useEffect, useState } from "react";
 
 export default function TicTac() {
+  const initialValue = [
+    { value: "" },
+    { value: "" },
+    { value: "" },
+    { value: "" },
+    { value: "" },
+    { value: "" },
+    { value: "" },
+    { value: "" },
+    { value: "" },
+  ];
+  const [highLight, setHighlight] = useState(false);
   const [play, setPlay] = useState(false);
   const [turn, setTurn] = useState(true);
-  const [columns, setColumns] = useState([
-    { value: "" },
-    { value: "" },
-    { value: "" },
-    { value: "" },
-    { value: "" },
-    { value: "" },
-    { value: "" },
-    { value: "" },
-    { value: "" },
-  ]);
+  const [complete, setComplete] = useState(null);
+  const [columns, setColumns] = useState(initialValue);
+
+  useEffect(() => {
+    highLight &&
+      setTimeout(() => {
+        setHighlight(false);
+      }, 1000);
+  }, [highLight]);
+
   const handleClick = (col) => {
     if (turn) {
       setColumns(columns.toSpliced(col, 1, { value: "X" }));
@@ -22,10 +33,6 @@ export default function TicTac() {
     }
     setTurn((prev) => !prev);
   };
-  useEffect(() => {
-    if (play) {
-    }
-  }, [play]);
   return (
     <div
       className="content-container"
@@ -36,21 +43,21 @@ export default function TicTac() {
       }}
     >
       <button
-        className="tictac-button"
+        className={`tictac-button ${highLight && "highlighted"}`}
         onClick={() => {
-          setPlay(!play);
+          !play ? setPlay(true) : setColumns(initialValue);
         }}
       >
-        Play Tic Tac Toe
+        {play ? "Restart" : "Start"}
       </button>
       <div className="tictac-score">
         <div>
           <h3>Player 1</h3>
-          {turn && <p>Your Turn..</p>}
+          {turn && play && <p>Your Turn..</p>}
         </div>
         <div>
           <h3>Player 2</h3>
-          {!turn && <p>Your Turn..</p>}
+          {!turn && play && <p>Your Turn..</p>}
         </div>
       </div>
       <div className="tictac-container">
@@ -59,9 +66,9 @@ export default function TicTac() {
             <div
               key={index}
               onClick={() => {
-                handleClick(index);
+                play ? handleClick(index) : setHighlight(true);
               }}
-              className="tictac-cols"
+              className={`tictac-cols ${play && "tictac-cols-hover"} `}
             >
               <p className="tictac-text">{col.value}</p>
             </div>
