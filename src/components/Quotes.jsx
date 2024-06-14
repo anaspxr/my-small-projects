@@ -37,11 +37,13 @@ export default function Quotes() {
 
   return (
     <div className="content-container">
-      <button className="fetch-button" onClick={fetchQuotes}>
-        Fetch another Quote
-      </button>
-      {loading && <span>Loading...</span>}
-      {error}
+      <div className=" quotes-container">
+        <button className="fetch-button" onClick={fetchQuotes}>
+          Fetch another Quote
+        </button>
+        {loading && <span style={{ textAlign: "center" }}>Loading...</span>}
+        {error}
+      </div>
       <h2>{quote && quote.quote}</h2>
       <h3>{quote && "-" + quote.author}</h3>
     </div>

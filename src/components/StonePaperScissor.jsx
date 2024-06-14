@@ -41,32 +41,37 @@ export default function StonePaperScissor() {
   };
   return (
     <div className="content-container">
-      <h2>Stone Paper Scissor</h2>
-      <p className="choice">
-        Pick Your Choice :{" "}
-        <span
-          onClick={() => {
-            generateRandom("Stone");
-          }}
-        >
-          Stone
-        </span>
-        <span
-          onClick={() => {
-            generateRandom("Paper");
-          }}
-        >
-          Paper
-        </span>
-        <span
-          onClick={() => {
-            generateRandom("Scissor");
-          }}
-        >
-          Scissor
-        </span>
-      </p>
-
+      <div
+        style={{
+          textAlign: "center",
+        }}
+      >
+        <h2>Stone Paper Scissor</h2>
+        <p className="choice">
+          Pick Your Choice :{" "}
+          <span
+            onClick={() => {
+              generateRandom("Stone");
+            }}
+          >
+            Stone
+          </span>
+          <span
+            onClick={() => {
+              generateRandom("Paper");
+            }}
+          >
+            Paper
+          </span>
+          <span
+            onClick={() => {
+              generateRandom("Scissor");
+            }}
+          >
+            Scissor
+          </span>
+        </p>
+      </div>
       <ShowResult
         userChoice={choice}
         computerChoice={result}
@@ -79,8 +84,14 @@ export default function StonePaperScissor() {
 function ShowResult(props) {
   return (
     <div>
-      <p>Your Choice : {props.userChoice}</p>
-      <p>Computer's choice:{props.computerChoice} </p>
+      <div
+        style={{
+          textAlign: "center",
+        }}
+      >
+        <p>Your Choice : {props.userChoice}</p>
+        <p>Computer's choice:{props.computerChoice} </p>
+      </div>
       <h1>{props.finalResult}</h1>
     </div>
   );

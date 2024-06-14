@@ -15,10 +15,11 @@ body {
 
 .content-container {
   margin-top: 30px;
+  margin: 10px;
 }
 
 button {
-  background-color: #efd0ff;
+  background-color: #d993ff;
   border: none;
   border-radius: 5px;
   padding: 10px;
@@ -26,7 +27,11 @@ button {
   transition: background-color 300ms;
 }
 button:hover {
-  background-color: #c681ec;
+  background-color: #994cc0;
+}
+.button-active {
+  border: 1px solid white;
+  background-color: #994cc0;
 }
 
 /* stone paper scissor */
@@ -49,7 +54,15 @@ button:hover {
 }
 
 /* quotes */
+
+.quotes-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .fetch-button {
+  align-self: center;
   border: 1px solid #dfcef3;
   color: #dfcef3;
   background-color: #4c065f51;
@@ -172,3 +185,6 @@ button:hover {
 .task-delete:hover {
   color: #ff0062;
 }
+
+/* tic tac toe */
+/* .tictac- */
