@@ -2,21 +2,32 @@ import { useEffect, useState } from "react";
 import Info from "./Info";
 
 export default function TicTac() {
-  const initialValue = [
-    { value: "" },
-    { value: "" },
-    { value: "" },
-    { value: "" },
-    { value: "" },
-    { value: "" },
-    { value: "" },
-    { value: "" },
-    { value: "" },
-  ];
+  const initialValue = ["", "", "", "", "", "", "", "", ""];
   const [highLight, setHighlight] = useState(false);
   const [play, setPlay] = useState(false);
   const [turn, setTurn] = useState(true);
   const [columns, setColumns] = useState(initialValue);
+  const [winner, setWinner] = useState(null);
+  const [warning, setWarning] = useState("");
+
+  const handleColumnClick = (index) => {
+    if (columns[index] !== "") {
+      setWarning("That column is already marked..!!");
+    } else {
+      setColumns(columns.toSpliced(index, 1, turn ? "X" : "O"));
+      setTurn((prev) => !prev);
+    }
+  };
+
+  const handlePlayClick = () => {
+    if (play) {
+      setColumns(initialValue);
+      setTurn(true);
+      setWinner(null);
+    } else {
+      setPlay(true);
+    }
+  };
 
   useEffect(() => {
     highLight &&
@@ -24,15 +35,28 @@ export default function TicTac() {
         setHighlight(false);
       }, 1000);
   }, [highLight]);
+  useEffect(() => {
+    // ? function to check if someone won or the game is a draw
+    const winPatterns = [
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      [0, 4, 8],
+      [2, 4, 6],
+    ];
+    // for (let pattern of winPatterns) {
+    //   const [a, b, c] = pattern;
+    //   if(col[a]&&)
+    // }
+  }, [columns]);
 
-  const handleClick = (col) => {
-    if (turn) {
-      setColumns(columns.toSpliced(col, 1, { value: "X" }));
-    } else {
-      setColumns(columns.toSpliced(col, 1, { value: "O" }));
-    }
-    setTurn((prev) => !prev);
-  };
+  useEffect(() => {
+    setWarning("");
+  }, [play, columns]);
+
   return (
     <div
       className="content-container"
@@ -54,26 +78,25 @@ export default function TicTac() {
       </div>
       <button
         className={`tictac-button ${highLight && "highlighted"}`}
-        onClick={() => {
-          !play ? setPlay(true) : setColumns(initialValue);
-        }}
+        onClick={handlePlayClick}
       >
         {play ? "Restart" : "Start"}
       </button>
       {highLight && (
         <p style={{ textAlign: "center" }}>Click start to play..!!</p>
       )}
+      <p style={{ textAlign: "center" }}>{warning}</p>
       <div className="tictac-container">
         {columns.map((col, index) => {
           return (
             <div
               key={index}
               onClick={() => {
-                play ? handleClick(index) : setHighlight(true);
+                play ? handleColumnClick(index) : setHighlight(true);
               }}
               className={`tictac-cols ${play && "tictac-cols-hover"} `}
             >
-              <p className="tictac-text">{col.value}</p>
+              <p className="tictac-text">{col}</p>
             </div>
           );
         })}
