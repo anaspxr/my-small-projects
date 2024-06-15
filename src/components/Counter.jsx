@@ -11,9 +11,9 @@ export default function Counter() {
   const [count, dispatch] = useReducer(reducer, initialValue);
   return (
     <div className="content-container">
-      <h style={{ textAlign: "center" }}>
+      <h3 style={{ textAlign: "center" }}>
         A simple counter using useReducer Hook to manage state
-      </h>
+      </h3>
       <p style={{ textAlign: "center" }}>Count: {count}</p>
       <div
         style={{ display: "flex", justifyContent: "center" }}
