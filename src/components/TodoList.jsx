@@ -68,7 +68,16 @@ export default function TodoList() {
           </div>
         )}
       </div>
-      <Info />
+      <Info
+        infos={[
+          "used onChange event to handle changes in input",
+          "used local storage to store the list data",
+          "used useState() to manage input values and to update list",
+          "used useEffect() to store data to local storage whenever new task is updated",
+          "used map method to display the tasks list",
+          "used filter method to help delete functionality",
+        ]}
+      />
     </div>
   );
 }

@@ -202,7 +202,17 @@ function Form() {
           </form>
         )}
       </div>
-      <Info />
+      <Info
+        infos={[
+          "implement form validation",
+          "used onChange event to handle changes and update form values",
+          "used useState to manage states of many state variables for conditional rendering and form validation",
+          "created strong validation functions to validate signup and login",
+          "used conditional rendering to display login/signup or profile",
+          "used localStorage to store the signed up users data",
+          "used useEffect() to store data to local storage whenever new user is created",
+        ]}
+      />
     </div>
   );
 }

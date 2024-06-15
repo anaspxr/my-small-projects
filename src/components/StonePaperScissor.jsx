@@ -78,7 +78,14 @@ export default function StonePaperScissor() {
         computerChoice={result}
         finalResult={finalResult}
       />
-      <Info />
+      <Info
+        infos={[
+          "used useState() to manage states of choices and results",
+          "Math.ceil and Math.random to generate random numbers from 1 to 3",
+          "Created another component called ShowResult to show the result after clicking a choice",
+          "passed props to ShowResult component",
+        ]}
+      />
     </div>
   );
 }

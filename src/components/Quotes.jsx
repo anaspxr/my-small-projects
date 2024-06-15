@@ -47,7 +47,14 @@ export default function Quotes() {
       </div>
       <h2>{quote && quote.quote}</h2>
       <h3>{quote && "-" + quote.author}</h3>
-      <Info />
+      <Info
+        infos={[
+          "used fetch() to fetch data from https://dummyjson.com/quotes",
+          "used useState() to manage states of loading,error and the quote to display",
+          "used useEffect to automatically fetch the data when component mounts (empty array as dependency)",
+          "used catch to display error if any error occur",
+        ]}
+      />
     </div>
   );
 }

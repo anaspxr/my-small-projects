@@ -78,7 +78,14 @@ export default function TicTac() {
           );
         })}
       </div>
-      <Info />
+      <Info
+        infos={[
+          "used useState() to manage states of many variables",
+          "used map method to display 9 columns of the game",
+          "used an object to display value to display (X or O)",
+          "used useEffect to show that user need to click the start button to play the game",
+        ]}
+      />
     </div>
   );
 }
