@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Info from "./Info";
 export default function StonePaperScissor() {
   const [finalResult, setFinalResult] = useState(null);
   const [result, setResult] = useState(null);
@@ -77,6 +78,7 @@ export default function StonePaperScissor() {
         computerChoice={result}
         finalResult={finalResult}
       />
+      <Info />
     </div>
   );
 }

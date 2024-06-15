@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Info from "./Info";
 
 export default function TicTac() {
   const initialValue = [
@@ -15,7 +16,6 @@ export default function TicTac() {
   const [highLight, setHighlight] = useState(false);
   const [play, setPlay] = useState(false);
   const [turn, setTurn] = useState(true);
-  const [complete, setComplete] = useState(null);
   const [columns, setColumns] = useState(initialValue);
 
   useEffect(() => {
@@ -78,6 +78,7 @@ export default function TicTac() {
           );
         })}
       </div>
+      <Info />
     </div>
   );
 }

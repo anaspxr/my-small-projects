@@ -34,6 +34,22 @@ button:hover {
   background-color: #884cc0;
 }
 
+.buttons-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 10px;
+}
+.info {
+  margin-top: 10px;
+}
+.info button {
+  background-color: #9771bd4f;
+}
+.info button:hover {
+  background-color: #9771bd91;
+}
+
 /* stone paper scissor */
 
 .choice span {
@@ -45,12 +61,6 @@ button:hover {
 }
 .choice span:hover {
   background-color: #9453de43;
-}
-
-.buttons-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
 }
 
 /* quotes */

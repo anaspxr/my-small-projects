@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import Info from "./Info";
 
 export default function TodoList() {
   const localData = JSON.parse(localStorage.getItem("tasks"));
@@ -31,40 +32,43 @@ export default function TodoList() {
     );
   };
   return (
-    <div className="content-container todo-list">
-      <h1>To Do List</h1>
-      <div className="inputField">
-        <input
-          ref={focuser}
-          type="text"
-          onChange={handleChange}
-          onKeyDown={(e) => e.key === "Enter" && handleClick()}
-          value={inputValue}
-        />
-        <button onClick={handleClick}>Add Task</button>
-      </div>
-
-      {tasks.length > 0 && (
-        <div className="tasks-field">
-          <h3>Pending Tasks:</h3>
-          <ul>
-            {tasks.map((item, index) => (
-              <li key={item.id}>
-                <span className="list-index">{index + 1} : </span>{" "}
-                <span>{item.value}</span>
-                <span
-                  className="task-delete"
-                  onClick={() => {
-                    handleDelete(index);
-                  }}
-                >
-                  Delete
-                </span>
-              </li>
-            ))}
-          </ul>
+    <div className="content-container">
+      <div className="todo-list">
+        <h1>To Do List</h1>
+        <div className="inputField">
+          <input
+            ref={focuser}
+            type="text"
+            onChange={handleChange}
+            onKeyDown={(e) => e.key === "Enter" && handleClick()}
+            value={inputValue}
+          />
+          <button onClick={handleClick}>Add Task</button>
         </div>
-      )}
+
+        {tasks.length > 0 && (
+          <div className="tasks-field">
+            <h3>Pending Tasks:</h3>
+            <ul>
+              {tasks.map((item, index) => (
+                <li key={item.id}>
+                  <span className="list-index">{index + 1} : </span>{" "}
+                  <span>{item.value}</span>
+                  <span
+                    className="task-delete"
+                    onClick={() => {
+                      handleDelete(index);
+                    }}
+                  >
+                    Delete
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+      <Info />
     </div>
   );
 }

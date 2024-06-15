@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Info from "./Info";
 
 export default function Quotes() {
   const [loading, setLoading] = useState(false);
@@ -46,6 +47,7 @@ export default function Quotes() {
       </div>
       <h2>{quote && quote.quote}</h2>
       <h3>{quote && "-" + quote.author}</h3>
+      <Info />
     </div>
   );
 }

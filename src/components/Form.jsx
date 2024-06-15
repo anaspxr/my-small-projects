@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Info from "./Info";
 
 function Form() {
   const localData = JSON.parse(localStorage.getItem("users"));
@@ -94,111 +95,114 @@ function Form() {
   }, [currentUsers]);
 
   return (
-    <div className="content-container form-container">
-      {loggedIn ? (
-        <div className="profile">
-          <p>Logged in Successfully</p>
-          <h1>Your Profile</h1>
-          <p>
-            Name: <span>{loggedUser.username}</span>
-          </p>
-          <p>
-            Email:<span>{loggedUser.email}</span>
-          </p>
-          <p
-            className="form-link"
-            onClick={() => {
-              setLoggedIn(false);
-            }}
-          >
-            Logout
-          </p>
-        </div>
-      ) : (
-        <form className="form" onSubmit={handleSubmit}>
-          <h1>{newUser ? "Sign Up" : "Login"}</h1>
-          {newUser && (
-            <div className="field">
-              <label htmlFor="username">Name</label>
-              <input
-                name="username"
-                id="username"
-                type="text"
-                placeholder="Your full name"
-                value={formValues.username}
-                onChange={handleChange}
-              />
-              <p className="form-errors">{formErrors.username}</p>
-            </div>
-          )}
-          <div className="field">
-            <label htmlFor="email">Email</label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              placeholder="youremail@gmail.com"
-              value={formValues.email}
-              onChange={handleChange}
-            />
-            <p className="form-errors">{formErrors.email}</p>
+    <div className="content-container ">
+      <div className="form-container">
+        {loggedIn ? (
+          <div className="profile">
+            <p>Logged in Successfully</p>
+            <h1>Your Profile</h1>
+            <p>
+              Name: <span>{loggedUser.username}</span>
+            </p>
+            <p>
+              Email:<span>{loggedUser.email}</span>
+            </p>
+            <p
+              className="form-link"
+              onClick={() => {
+                setLoggedIn(false);
+              }}
+            >
+              Logout
+            </p>
           </div>
-          <div className="field">
-            <label htmlFor="password">Password</label>
-            <input
-              name="password"
-              id="password"
-              type="password"
-              placeholder="password"
-              value={formValues.password}
-              onChange={handleChange}
-            />
-            <p className="form-errors">{formErrors.password}</p>
-          </div>
-          {newUser && (
-            <div className="field">
-              <label htmlFor="confirmpass">Confirm Password</label>
-              <input
-                name="confirmpass"
-                id="confirmpass"
-                type="password"
-                placeholder="Enter the same password"
-                onChange={handleChange}
-              />
-              <p className="form-errors">{formErrors.confirmpass}</p>
-            </div>
-          )}
-          {newUser ? <button>Sign Up</button> : <button>Log In</button>}
-          <p className="form-errors">{formErrors.login}</p>
-          <div className="bottom-container">
-            {newUser ? (
-              <p>
-                Already have an account?{" "}
-                <span
-                  className="form-link"
-                  onClick={() => {
-                    setNewUser(false);
-                  }}
-                >
-                  Login
-                </span>{" "}
-              </p>
-            ) : (
-              <p>
-                Don't have an account?{" "}
-                <span
-                  className="form-link"
-                  onClick={() => {
-                    setNewUser(true);
-                  }}
-                >
-                  Sign Up
-                </span>
-              </p>
+        ) : (
+          <form className="form" onSubmit={handleSubmit}>
+            <h1>{newUser ? "Sign Up" : "Login"}</h1>
+            {newUser && (
+              <div className="field">
+                <label htmlFor="username">Name</label>
+                <input
+                  name="username"
+                  id="username"
+                  type="text"
+                  placeholder="Your full name"
+                  value={formValues.username}
+                  onChange={handleChange}
+                />
+                <p className="form-errors">{formErrors.username}</p>
+              </div>
             )}
-          </div>
-        </form>
-      )}
+            <div className="field">
+              <label htmlFor="email">Email</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="youremail@gmail.com"
+                value={formValues.email}
+                onChange={handleChange}
+              />
+              <p className="form-errors">{formErrors.email}</p>
+            </div>
+            <div className="field">
+              <label htmlFor="password">Password</label>
+              <input
+                name="password"
+                id="password"
+                type="password"
+                placeholder="password"
+                value={formValues.password}
+                onChange={handleChange}
+              />
+              <p className="form-errors">{formErrors.password}</p>
+            </div>
+            {newUser && (
+              <div className="field">
+                <label htmlFor="confirmpass">Confirm Password</label>
+                <input
+                  name="confirmpass"
+                  id="confirmpass"
+                  type="password"
+                  placeholder="Enter the same password"
+                  onChange={handleChange}
+                />
+                <p className="form-errors">{formErrors.confirmpass}</p>
+              </div>
+            )}
+            {newUser ? <button>Sign Up</button> : <button>Log In</button>}
+            <p className="form-errors">{formErrors.login}</p>
+            <div className="bottom-container">
+              {newUser ? (
+                <p>
+                  Already have an account?{" "}
+                  <span
+                    className="form-link"
+                    onClick={() => {
+                      setNewUser(false);
+                    }}
+                  >
+                    Login
+                  </span>{" "}
+                </p>
+              ) : (
+                <p>
+                  Don't have an account?{" "}
+                  <span
+                    className="form-link"
+                    onClick={() => {
+                      setNewUser(true);
+                    }}
+                  >
+                    Sign Up
+                  </span>
+                </p>
+              )}
+            </div>
+          </form>
+        )}
+      </div>
+      <Info />
     </div>
   );
 }
