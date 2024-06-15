@@ -1,7 +1,9 @@
-import React, { useReducer } from "react";
+import React, { useContext, useReducer, useState } from "react";
 import Info from "./Info";
+import { CounterContext } from "../App";
 
 export default function Counter() {
+  const [, setValue] = useContext(CounterContext);
   const initialValue = 0;
 
   const reducer = (state, action) => {
@@ -21,6 +23,7 @@ export default function Counter() {
       >
         <button
           onClick={() => {
+            setValue((value) => value + 1);
             dispatch((state) => {
               return state + 1;
             });
@@ -47,7 +50,12 @@ export default function Counter() {
           Reset
         </button>
       </div>
-      <Info />
+      <Info
+        infos={[
+          "used useReducer() to increment,decrement and reset the count",
+          "used useContext to display the count on the another component (see on 'Counter' button on top)",
+        ]}
+      />
     </div>
   );
 }

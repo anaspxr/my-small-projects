@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import StonePaperScissor from "./components/StonePaperScissor";
 import Quotes from "./components/Quotes";
@@ -7,14 +7,17 @@ import TodoList from "./components/TodoList";
 import TicTac from "./components/TicTac";
 import Counter from "./components/Counter";
 
+export const CounterContext = React.createContext();
+
 function App() {
+  const [count, setCount] = useState(0);
   const listItems = [
     "Stone Paper Scissor",
     "Quotes",
     "Form",
     "To-Do List",
     "Tic Tac Toe",
-    "Counter",
+    `Counter (${count})`,
   ];
   const [showContent, setShowContent] = useState(0);
   const Buttons = listItems.map((content, index) => (
@@ -31,13 +34,15 @@ function App() {
   return (
     <div className="App">
       <h3>Choose a Project:</h3>
-      <div className="buttons-container"> {Buttons}</div>
-      {showContent === 1 && <StonePaperScissor />}
-      {showContent === 2 && <Quotes />}
-      {showContent === 3 && <Form />}
-      {showContent === 4 && <TodoList />}
-      {showContent === 5 && <TicTac />}
-      {showContent === 6 && <Counter />}
+      <CounterContext.Provider value={[count, setCount]}>
+        <div className="buttons-container"> {Buttons}</div>
+        {showContent === 1 && <StonePaperScissor />}
+        {showContent === 2 && <Quotes />}
+        {showContent === 3 && <Form />}
+        {showContent === 4 && <TodoList />}
+        {showContent === 5 && <TicTac />}
+        {showContent === 6 && <Counter />}
+      </CounterContext.Provider>
     </div>
   );
 }
