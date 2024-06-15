@@ -1,9 +1,9 @@
-import React, { useContext, useReducer, useState } from "react";
+import React, { useContext, useReducer } from "react";
 import Info from "./Info";
 import { CounterContext } from "../App";
 
 export default function Counter() {
-  const [, setValue] = useContext(CounterContext);
+  const [setValue] = useContext(CounterContext);
   const initialValue = 0;
 
   const reducer = (state, action) => {
