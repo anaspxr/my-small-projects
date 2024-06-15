@@ -14,6 +14,7 @@ export default function TicTac() {
     if (columns[index] !== "") {
       setWarning("That column is already marked..!!");
     } else {
+      setWarning("");
       setColumns(columns.toSpliced(index, 1, turn ? "X" : "O"));
       setTurn((prev) => !prev);
     }
@@ -24,6 +25,7 @@ export default function TicTac() {
       setColumns(initialValue);
       setTurn(true);
       setWinner(null);
+      setWarning(null);
     } else {
       setPlay(true);
     }
@@ -47,15 +49,18 @@ export default function TicTac() {
       [0, 4, 8],
       [2, 4, 6],
     ];
-    // for (let pattern of winPatterns) {
-    //   const [a, b, c] = pattern;
-    //   if(col[a]&&)
-    // }
+    for (let pattern of winPatterns) {
+      const [a, b, c] = pattern;
+      if (
+        columns[a] &&
+        columns[a] === columns[b] &&
+        columns[a] === columns[c]
+      ) {
+        setWinner(columns[a]);
+        return;
+      }
+    }
   }, [columns]);
-
-  useEffect(() => {
-    setWarning("");
-  }, [play, columns]);
 
   return (
     <div
@@ -100,6 +105,14 @@ export default function TicTac() {
             </div>
           );
         })}
+        {winner && (
+          <div className="winner-overlay">
+            <h2>{winner === "X" ? "Player1 won!!" : "Player2 won!!"}</h2>
+            <button className="tictac-button" onClick={handlePlayClick}>
+              Restart
+            </button>
+          </div>
+        )}
       </div>
       <Info
         infos={[
