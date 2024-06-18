@@ -37,6 +37,7 @@ export default function TicTac() {
         setHighlight(false);
       }, 1000);
   }, [highLight]);
+
   useEffect(() => {
     // ? function to check if someone won or the game is a draw
     const winPatterns = [
@@ -49,8 +50,10 @@ export default function TicTac() {
       [0, 4, 8],
       [2, 4, 6],
     ];
+    let flag = true;
     for (let pattern of winPatterns) {
       const [a, b, c] = pattern;
+      flag === true && !columns[a] && (flag = false);
       if (
         columns[a] &&
         columns[a] === columns[b] &&
@@ -60,6 +63,7 @@ export default function TicTac() {
         return;
       }
     }
+    flag === true && setWinner("D");
   }, [columns]);
 
   return (
@@ -107,7 +111,13 @@ export default function TicTac() {
         })}
         {winner && (
           <div className="winner-overlay">
-            <h2>{winner === "X" ? "Player1 won!!" : "Player2 won!!"}</h2>
+            <h2>
+              {winner === "X"
+                ? "Player1 won!!"
+                : winner === "O"
+                ? "Player2 won!!"
+                : "Draw..!!"}
+            </h2>
             <button className="tictac-button" onClick={handlePlayClick}>
               Restart
             </button>
