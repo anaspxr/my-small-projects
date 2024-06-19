@@ -13,6 +13,23 @@ body {
   flex-direction: column;
 }
 
+.nav-buttons {
+  text-decoration: none;
+  color: initial;
+  background-color: #b090eb;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 300ms;
+}
+.nav-buttons:hover {
+  background-color: #7e4cc0;
+}
+.nav-buttons:active {
+  color: initial;
+}
+
 .content-container {
   margin-top: 30px;
   margin: 10px;
