@@ -34,7 +34,7 @@ function App() {
   return (
     <div className="App">
       <h3>Choose a Project:</h3>
-      <CounterContext.Provider value={[setCount]}>
+      <CounterContext.Provider value={setCount}>
         <div className="buttons-container"> {Buttons}</div>
         {showContent === 1 && <TicTac />}
         {showContent === 2 && <Quotes />}
