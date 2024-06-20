@@ -50,6 +50,7 @@ export default function TicTac() {
       [0, 4, 8],
       [2, 4, 6],
     ];
+
     let flag = true;
     for (let pattern of winPatterns) {
       const [a, b, c] = pattern;

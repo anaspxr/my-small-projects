@@ -1,17 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Info from "./Info";
+import { userContext } from "../App";
 
 function Form() {
+  const [currentUser, setCurrentUser] = useContext(userContext);
   const localData = JSON.parse(localStorage.getItem("users"));
-  const [currentUsers, setCurrentUsers] = useState(
-    localData ? [...localData] : []
-  );
+  const [allUsers, setAllUsers] = useState(localData ? [...localData] : []);
   const [loggedUser, setLoggedUser] = useState({});
   const initialValues = { username: "", email: "", password: "" };
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
   const [newUser, setNewUser] = useState(true);
-  const [loggedIn, setLoggedIn] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -43,7 +42,7 @@ function Form() {
       errors.confirmpass = "passwords mismatch!!";
 
     if (Object.keys(errors).length === 0) {
-      for (let x of currentUsers) {
+      for (let x of allUsers) {
         if (x.email === formValues.email) {
           errors.email = "This email is already registered";
         }
@@ -56,7 +55,7 @@ function Form() {
         email: formValues.email,
         password: formValues.password,
       };
-      setCurrentUsers([...currentUsers, newUserObj]);
+      setAllUsers([...allUsers, newUserObj]);
       setNewUser(false);
       setFormValues(initialValues);
     }
@@ -73,13 +72,12 @@ function Form() {
     if (!values.password) errors.password = "enter password";
 
     if (Object.keys(errors).length === 0) {
-      for (let user of currentUsers) {
+      for (let user of allUsers) {
         if (
           user.email === formValues.email &&
           user.password === formValues.password
         ) {
-          setLoggedUser({ username: user.username, email: user.email });
-          setLoggedIn(true);
+          setCurrentUser({ username: user.username, email: user.email });
           setFormValues(initialValues);
           break;
         } else {
@@ -91,13 +89,19 @@ function Form() {
   };
 
   useEffect(() => {
-    localStorage.setItem("users", JSON.stringify(currentUsers));
-  }, [currentUsers]);
+    if (currentUser.username) {
+      setLoggedUser(currentUser);
+    }
+  }, [currentUser]);
+
+  useEffect(() => {
+    localStorage.setItem("users", JSON.stringify(allUsers));
+  }, [allUsers]);
 
   return (
     <div className="content-container ">
       <div className="form-container">
-        {loggedIn ? (
+        {loggedUser.username ? (
           <div className="profile">
             <p>Logged in Successfully</p>
             <h1>Your Profile</h1>
@@ -110,7 +114,7 @@ function Form() {
             <p
               className="form-link"
               onClick={() => {
-                setLoggedIn(false);
+                setLoggedUser({});
               }}
             >
               Logout

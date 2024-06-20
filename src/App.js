@@ -9,8 +9,10 @@ import Counter from "./components/Counter";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 export const CounterContext = React.createContext();
+export const userContext = React.createContext();
 
 function App() {
+  const [currentUser, setCurrentUser] = useState({});
   const [count, setCount] = useState(0);
   const menuItems = [
     {
@@ -22,7 +24,7 @@ function App() {
       path: "/quotes",
     },
     {
-      title: "Login",
+      title: `${currentUser.username ? "Profile" : "Signup/Login"}`,
       path: "/user",
     },
     {
@@ -47,17 +49,19 @@ function App() {
     <div className="App">
       <h3>Choose a Project:</h3>
       <CounterContext.Provider value={setCount}>
-        <div className="buttons-container"> {Buttons}</div>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<TicTac />} />
-            <Route path="/quotes" element={<Quotes />} />
-            <Route path="/user" element={<Form />} />
-            <Route path="/todolist" element={<TodoList />} />
-            <Route path="/sps" element={<StonePaperScissor />} />
-            <Route path="/counter" element={<Counter />} />
-          </Routes>
-        </BrowserRouter>
+        <userContext.Provider value={[currentUser, setCurrentUser]}>
+          <div className="buttons-container"> {Buttons}</div>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<TicTac />} />
+              <Route path="/quotes" element={<Quotes />} />
+              <Route path="/user" element={<Form />} />
+              <Route path="/todolist" element={<TodoList />} />
+              <Route path="/sps" element={<StonePaperScissor />} />
+              <Route path="/counter" element={<Counter />} />
+            </Routes>
+          </BrowserRouter>
+        </userContext.Provider>
       </CounterContext.Provider>
     </div>
   );
