@@ -7,6 +7,7 @@ import TodoList from "./components/TodoList";
 import TicTac from "./components/TicTac";
 import Counter from "./components/Counter";
 import { Link, Route, Routes } from "react-router-dom";
+import Navbar from "./components/Navbar";
 
 export const CounterContext = React.createContext();
 export const userContext = React.createContext();
@@ -14,44 +15,13 @@ export const userContext = React.createContext();
 function App() {
   const [currentUser, setCurrentUser] = useState({});
   const [count, setCount] = useState(0);
-  const menuItems = [
-    {
-      title: "Tic Tac Toe",
-      path: "/",
-    },
-    {
-      title: "Quotes",
-      path: "/quotes",
-    },
-    {
-      title: `${currentUser.username ? "Profile" : "Signup/Login"}`,
-      path: "/user",
-    },
-    {
-      title: "To Do List",
-      path: "/todolist",
-    },
-    {
-      title: "Stone Paper Scissor",
-      path: "/sps",
-    },
-    {
-      title: `Counter (${count})`,
-      path: "/counter",
-    },
-  ];
-  const Buttons = menuItems.map((content, index) => (
-    <Link to={content.path} key={index} className="nav-buttons">
-      <span>{content.title}</span>
-    </Link>
-  ));
+
   return (
     <div className="App">
       <h3>Choose a Project:</h3>
-      <CounterContext.Provider value={setCount}>
+      <CounterContext.Provider value={[count, setCount]}>
         <userContext.Provider value={[currentUser, setCurrentUser]}>
-          <div className="buttons-container"> {Buttons}</div>
-
+          <Navbar />
           <Routes>
             <Route path="/" element={<TicTac />} />
             <Route path="/quotes" element={<Quotes />} />
