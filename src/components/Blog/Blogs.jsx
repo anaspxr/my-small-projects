@@ -11,7 +11,8 @@ export default function Blogs() {
     e.preventDefault();
     const id = Date.now();
     console.log(id);
-    setBlogs([...blogs, { id: id, ...formValues }]);
+    setBlogs([...blogs, { ...formValues, id: id }]);
+    setFormValues(initialValues);
   };
 
   const handleChange = (e) => {
@@ -28,8 +29,8 @@ export default function Blogs() {
       <div className="blogs-container"></div>
       <h1 className="heading">Blogs</h1>
       <div className="blogs-display">
-        {blogs.map((blog, i) => (
-          <div key={i} className="blog">
+        {blogs.map((blog) => (
+          <div key={blog.id} className="blog">
             <h3>{blog.title}</h3>
             <p>{blog.body}</p>
           </div>
@@ -43,12 +44,14 @@ export default function Blogs() {
             type="text"
             placeholder="title"
             value={formValues.title}
+            required
           />
           <textarea
             onChange={handleChange}
-            name="blog"
+            name="body"
             placeholder=" enter the body of your blog here!!"
             value={formValues.body}
+            required
           />
           <button>Create your own Blog..</button>
         </form>
