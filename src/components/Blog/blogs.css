@@ -42,7 +42,11 @@
 }
 
 .blog:hover {
-  background-color: rgba(0, 0, 0, 0.098);
+  background-color: rgba(71, 71, 71, 0.071);
   cursor: pointer;
-  transform: scale(0.9);
+  transform: scale(0.95);
+}
+.blogs-display a {
+  text-decoration: none;
+  color: inherit;
 }

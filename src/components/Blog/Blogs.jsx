@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./blogs.css";
+import { Link } from "react-router-dom";
 
 export default function Blogs() {
   const localData = JSON.parse(localStorage.getItem("blogs"));
@@ -29,10 +30,12 @@ export default function Blogs() {
       <h1 className="heading">Blogs</h1>
       <div className="blogs-display">
         {blogs.map((blog) => (
-          <div key={blog.id} className="blog">
-            <h3>{blog.title}</h3>
-            <p>{blog.body}</p>
-          </div>
+          <Link to={`:${blog.id}`}>
+            <div key={blog.id} className="blog">
+              <h3>{blog.title}</h3>
+              <p>{blog.body}</p>
+            </div>
+          </Link>
         ))}
       </div>
       <div className="blog-form">
