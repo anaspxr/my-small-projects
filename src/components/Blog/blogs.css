@@ -1,3 +1,8 @@
+.blogs-container {
+  width: 100%;
+  padding: 20px;
+}
+
 .heading {
   text-align: center;
 }
@@ -17,5 +22,27 @@
 }
 
 .blogs-display {
-  max-width: 500px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.blog {
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.24);
+  padding: 5px;
+  height: 300px;
+  transition: 0.5s transform;
+  overflow: hidden;
+}
+.blog p {
+  text-overflow: clip;
+}
+
+.blog:hover {
+  background-color: rgba(0, 0, 0, 0.098);
+  cursor: pointer;
+  transform: scale(0.9);
 }

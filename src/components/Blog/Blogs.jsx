@@ -25,8 +25,7 @@ export default function Blogs() {
   }, [blogs]);
 
   return (
-    <div className="content-container">
-      <div className="blogs-container"></div>
+    <div className="blogs-container">
       <h1 className="heading">Blogs</h1>
       <div className="blogs-display">
         {blogs.map((blog) => (
