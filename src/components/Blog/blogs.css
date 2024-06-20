@@ -1,0 +1,17 @@
+.heading {
+  text-align: center;
+}
+
+.blog-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.blog-form input {
+  height: 30px;
+}
+
+.blog-form textarea {
+  height: 100px;
+}

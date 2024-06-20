@@ -30,6 +30,10 @@ export default function Navbar() {
       title: `Counter (${count})`,
       path: "/counter",
     },
+    {
+      title: `Blogs`,
+      path: "/blogs",
+    },
   ];
   return (
     <div className="buttons-container">

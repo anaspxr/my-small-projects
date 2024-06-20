@@ -8,6 +8,7 @@ import TicTac from "./components/TicTac";
 import Counter from "./components/Counter";
 import { Link, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Blogs from "./components/Blog/Blogs";
 
 export const CounterContext = React.createContext();
 export const userContext = React.createContext();
@@ -29,6 +30,7 @@ function App() {
             <Route path="/todolist" element={<TodoList />} />
             <Route path="/sps" element={<StonePaperScissor />} />
             <Route path="/counter" element={<Counter />} />
+            <Route path="/blogs" element={<Blogs />} />
           </Routes>
         </userContext.Provider>
       </CounterContext.Provider>
