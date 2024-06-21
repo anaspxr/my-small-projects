@@ -30,8 +30,8 @@ export default function Blogs() {
       <h1 className="heading">Blogs</h1>
       <div className="blogs-display">
         {blogs.map((blog) => (
-          <Link to={`:${blog.id}`}>
-            <div key={blog.id} className="blog">
+          <Link key={blog.id} to={`${blog.id}`}>
+            <div className="blog">
               <h3>{blog.title}</h3>
               <p>{blog.body}</p>
             </div>
