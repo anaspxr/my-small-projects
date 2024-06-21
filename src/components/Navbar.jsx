@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { CounterContext, userContext } from "../App";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export default function Navbar() {
   const [count] = useContext(CounterContext);
@@ -38,9 +38,15 @@ export default function Navbar() {
   return (
     <div className="buttons-container">
       {menuItems.map((content, index) => (
-        <Link to={content.path} key={index} className="nav-buttons">
+        <NavLink
+          to={content.path}
+          key={index}
+          className={({ isActive }) => {
+            return isActive ? "nav-buttons nav-button-active" : "nav-buttons";
+          }}
+        >
           <span>{content.title}</span>
-        </Link>
+        </NavLink>
       ))}
     </div>
   );

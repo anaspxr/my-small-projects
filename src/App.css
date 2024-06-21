@@ -30,6 +30,11 @@ body {
   color: initial;
 }
 
+.nav-button-active {
+  border: 1px solid white;
+  background-color: #884cc0;
+}
+
 .content-container {
   margin-top: 30px;
   margin: 10px;
@@ -45,10 +50,6 @@ button {
 }
 button:hover {
   background-color: #7e4cc0;
-}
-.button-active {
-  border: 1px solid white;
-  background-color: #884cc0;
 }
 
 .buttons-container {

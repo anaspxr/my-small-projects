@@ -31,8 +31,13 @@ function App() {
             <Route path="/todolist" element={<TodoList />} />
             <Route path="/sps" element={<StonePaperScissor />} />
             <Route path="/counter" element={<Counter />} />
-            <Route path="/blogs" element={<Blogs />} />
-            <Route path="/blogs/:id" element={<SingleBlog />} />
+            <Route path="/blogs">
+              <Route index element={<Blogs />} />
+              <Route path=":id" element={<SingleBlog />} />
+            </Route>
+
+            {/* <Route path="/blogs" element={<Blogs />} />
+            <Route path="/blogs/:id" element={<SingleBlog />} /> */}
           </Routes>
         </userContext.Provider>
       </CounterContext.Provider>
