@@ -12,7 +12,7 @@ export default function Blogs() {
     e.preventDefault();
     const id = Date.now();
     console.log(id);
-    setBlogs([...blogs, { ...formValues, id: id }]);
+    setBlogs([...blogs, { ...formValues, id: id.toString() }]);
     setFormValues(initialValues);
   };
 

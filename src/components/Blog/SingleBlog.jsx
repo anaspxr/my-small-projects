@@ -8,9 +8,7 @@ export default function SingleBlog() {
 
   useEffect(() => {
     for (let blog of localData) {
-      console.log(blog.id);
-      console.log(id);
-      if (blog.id == id) setBlog(blog);
+      if (blog.id.toString() === id) setBlog(blog);
     }
   }, []);
 
