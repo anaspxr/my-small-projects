@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import { CounterContext, userContext } from "../App";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function Navbar() {
   const [count] = useContext(CounterContext);
-  const [currentUser, setCurrentUser] = useContext(userContext);
+  const [currentUser] = useContext(userContext);
   const menuItems = [
     {
       title: "Tic Tac Toe",
@@ -33,6 +33,10 @@ export default function Navbar() {
     {
       title: `Blogs`,
       path: "/blogs",
+    },
+    {
+      title: `Todo list with redux`,
+      path: "/reduxtodo",
     },
   ];
   return (
