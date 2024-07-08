@@ -1,10 +1,12 @@
 import React, { useContext } from "react";
 import { CounterContext, userContext } from "../App";
 import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export default function Navbar() {
   const [count] = useContext(CounterContext);
   const [currentUser] = useContext(userContext);
+  const reduxCountValue = useSelector((state) => state.counter.value);
   const menuItems = [
     {
       title: "Tic Tac Toe",
@@ -31,11 +33,11 @@ export default function Navbar() {
       path: "/counter",
     },
     {
-      title: `Blogs`,
+      title: "Blogs",
       path: "/blogs",
     },
     {
-      title: `Counter with Redux`,
+      title: `Counter with Redux (${reduxCountValue})`,
       path: "/reduxcounter",
     },
   ];
