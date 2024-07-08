@@ -10,7 +10,7 @@ import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Blogs from "./components/Blog/Blogs";
 import SingleBlog from "./components/Blog/SingleBlog";
-import ReduxTodoList from "./components/ReduxTodoList";
+import ReduxCounter from "./components/ReduxCounter";
 
 export const CounterContext = React.createContext();
 export const userContext = React.createContext();
@@ -36,7 +36,7 @@ function App() {
               <Route index element={<Blogs />} />
               <Route path=":id" element={<SingleBlog />} />
             </Route>
-            <Route path="/reduxtodo" element={<ReduxTodoList />} />
+            <Route path="/reduxcounter" element={<ReduxCounter />} />
 
             {/* <Route path="/blogs" element={<Blogs />} />
             <Route path="/blogs/:id" element={<SingleBlog />} /> */}

@@ -35,8 +35,8 @@ export default function Navbar() {
       path: "/blogs",
     },
     {
-      title: `Todo list with redux`,
-      path: "/reduxtodo",
+      title: `Counter with Redux`,
+      path: "/reduxcounter",
     },
   ];
   return (
