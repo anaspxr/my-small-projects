@@ -6,7 +6,7 @@ import {
   incrementAsync,
   incrementByValue,
   reset,
-} from "../State/TodoList/counterSlice";
+} from "../State/counterSlice";
 
 function ReduxCounter() {
   const count = useSelector((state) => state.counter.value);

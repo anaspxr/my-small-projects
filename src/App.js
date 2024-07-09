@@ -11,6 +11,7 @@ import Navbar from "./components/Navbar";
 import Blogs from "./components/Blog/Blogs";
 import SingleBlog from "./components/Blog/SingleBlog";
 import ReduxCounter from "./components/ReduxCounter";
+import ReduxTodo from "./components/ReduxTodo";
 
 export const CounterContext = React.createContext();
 export const userContext = React.createContext();
@@ -37,6 +38,7 @@ function App() {
               <Route path=":id" element={<SingleBlog />} />
             </Route>
             <Route path="/reduxcounter" element={<ReduxCounter />} />
+            <Route path="/reduxtodo" element={<ReduxTodo />} />
 
             {/* <Route path="/blogs" element={<Blogs />} />
             <Route path="/blogs/:id" element={<SingleBlog />} /> */}

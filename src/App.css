@@ -214,6 +214,16 @@ button:hover {
 .task-delete:hover {
   color: #ff0062;
 }
+.task-edit {
+  margin-bottom: 5px;
+  color: #352e96;
+  text-decoration: underline;
+  cursor: pointer;
+  grid-column: 10;
+}
+.task-edit:hover {
+  color: #385baf;
+}
 
 /* tic tac toe */
 .tictac-container {

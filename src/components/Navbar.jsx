@@ -40,6 +40,10 @@ export default function Navbar() {
       title: `Counter with Redux (${reduxCountValue})`,
       path: "/reduxcounter",
     },
+    {
+      title: "To Do with redux",
+      path: "/reduxtodo",
+    },
   ];
   return (
     <div className="buttons-container">
