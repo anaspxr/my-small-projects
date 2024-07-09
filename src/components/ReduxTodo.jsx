@@ -40,7 +40,7 @@ export default function ReduxTodo() {
             <h3>Pending Tasks:</h3>
             <ul>
               {tasks.map((item, index) => (
-                <li key={item.id}>
+                <li key={item.id} className="reduxLi">
                   <TaskDisplayField index={index} item={item} />
                 </li>
               ))}
@@ -69,7 +69,6 @@ function TaskDisplayField({ item, index }) {
     <form
       style={{
         gap: "10px",
-        width: "100%",
         display: "flex",
         justifyContent: "space-between",
       }}
